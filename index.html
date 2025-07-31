@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>National Girlfriend Day</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -506,33 +506,262 @@
             animation: heartbeat 1.5s infinite;
         }
 
-        @media (max-width: 500px) {
+        /* Media Queries untuk Responsivitas */
+        /* Laptop/Desktop */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 450px;
+            }
+            
+            .bouquet {
+                transform: scale(1);
+                bottom: -50px;
+                right: -50px;
+            }
+        }
+        
+        /* Tablet */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+            
+            .page {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            .pin-display {
+                height: 55px;
+                font-size: 22px;
+            }
+            
+            .key {
+                height: 55px;
+                font-size: 22px;
+            }
+            
+            .submit-btn {
+                padding: 14px 28px;
+                font-size: 17px;
+            }
+            
+            .bouquet {
+                transform: scale(0.8);
+                bottom: -60px;
+                right: -60px;
+            }
+        }
+        
+        /* Handphone dan iPhone 16 Pro */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                max-width: 95%;
+            }
+            
+            .page {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+            
+            .heart-icon {
+                font-size: 36px;
+                margin-bottom: 15px;
+            }
+            
+            .pin-display {
+                height: 50px;
+                font-size: 20px;
+                letter-spacing: 8px;
+                margin: 15px 0;
+            }
+            
             .keypad {
-                gap: 10px;
+                gap: 12px;
+                margin: 25px 0;
             }
             
             .key {
                 height: 50px;
                 font-size: 20px;
+                border-radius: 12px;
+            }
+            
+            .submit-btn {
+                padding: 12px 24px;
+                font-size: 16px;
+                margin-top: 15px;
+            }
+            
+            .envelope {
+                width: 170px;
+                height: 130px;
+                margin: 20px auto;
+            }
+            
+            .envelope:before {
+                border-left: 85px solid transparent;
+                border-right: 85px solid transparent;
+                border-bottom: 65px solid #ffc2cd;
+            }
+            
+            .envelope:after {
+                top: 65px;
+                width: 170px;
+                height: 65px;
+            }
+            
+            .letter-icon {
+                font-size: 50px;
             }
             
             .button-group {
                 flex-direction: column;
                 gap: 15px;
+                margin-top: 25px;
             }
             
-            .letter-title {
-                font-size: 26px;
-            }
-            
-            .letter-text {
+            .btn {
+                width: 100%;
+                padding: 14px;
                 font-size: 16px;
             }
             
             .bouquet {
-                transform: scale(0.7);
+                transform: scale(0.6);
                 bottom: -70px;
                 right: -70px;
+            }
+            
+            /* Penyesuaian khusus iPhone 16 Pro */
+            @media (max-height: 800px) and (max-width: 480px) {
+                .page {
+                    padding: 15px 10px;
+                }
+                
+                h1 {
+                    font-size: 22px;
+                }
+                
+                .pin-display {
+                    height: 45px;
+                    font-size: 18px;
+                    letter-spacing: 6px;
+                }
+                
+                .key {
+                    height: 45px;
+                    font-size: 18px;
+                }
+                
+                .submit-btn {
+                    padding: 11px 22px;
+                    font-size: 15px;
+                }
+                
+                .envelope {
+                    width: 150px;
+                    height: 110px;
+                }
+                
+                .envelope:before {
+                    border-left: 75px solid transparent;
+                    border-right: 75px solid transparent;
+                    border-bottom: 55px solid #ffc2cd;
+                }
+                
+                .envelope:after {
+                    top: 55px;
+                    width: 150px;
+                    height: 55px;
+                }
+                
+                .letter-icon {
+                    font-size: 45px;
+                }
+                
+                .button-group {
+                    gap: 12px;
+                }
+            }
+        }
+        
+        /* Penyesuaian untuk iPhone dengan notch */
+        @supports(padding: max(0px)) {
+            body {
+                padding: max(env(safe-area-inset-top), 20px) 
+                         max(env(safe-area-inset-right), 20px) 
+                         max(env(safe-area-inset-bottom), 20px) 
+                         max(env(safe-area-inset-left), 20px);
+            }
+        }
+        
+        /* Orientasi landscape */
+        @media (orientation: landscape) and (max-height: 500px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                max-width: 90%;
+                max-height: 95vh;
+                overflow-y: auto;
+            }
+            
+            .page {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            
+            .heart-icon {
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .pin-display {
+                height: 40px;
+                font-size: 18px;
+                letter-spacing: 6px;
+                margin: 10px 0;
+            }
+            
+            .keypad {
+                gap: 8px;
+                margin: 15px 0;
+            }
+            
+            .key {
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .submit-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+                margin-top: 10px;
+            }
+            
+            .bouquet {
+                display: none;
+            }
+            
+            .flower {
+                display: none;
             }
         }
     </style>
