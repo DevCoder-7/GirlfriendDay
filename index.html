@@ -20,7 +20,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -185,10 +185,13 @@
             padding: 30px;
             border-radius: 20px;
             text-align: center;
-            max-width: 80%;
+            max-width: 90%;
             transform: scale(0.8);
             transition: transform 0.3s;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            width: 90%;
+            max-width: 400px;
         }
 
         .popup.show {
@@ -315,6 +318,8 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.5s;
+            overflow: auto;
+            padding: 20px;
         }
 
         .letter-overlay.show {
@@ -324,7 +329,7 @@
 
         .letter-content {
             background: linear-gradient(135deg, #fff9f9, #fff);
-            width: 90%;
+            width: 100%;
             max-width: 600px;
             max-height: 90vh;
             border-radius: 20px;
@@ -333,6 +338,7 @@
             transform: scale(0.8);
             transition: transform 0.5s;
             position: relative;
+            margin: auto;
         }
 
         .letter-overlay.show .letter-content {
@@ -554,6 +560,14 @@
                 bottom: -60px;
                 right: -60px;
             }
+            
+            .popup-content {
+                max-width: 90%;
+            }
+            
+            .letter-content {
+                max-width: 90%;
+            }
         }
         
         /* Handphone dan iPhone 16 Pro */
@@ -642,6 +656,27 @@
                 transform: scale(0.6);
                 bottom: -70px;
                 right: -70px;
+            }
+            
+            .popup-content {
+                padding: 20px;
+                max-width: 95%;
+            }
+            
+            .popup-text {
+                font-size: 18px;
+            }
+            
+            .letter-content {
+                max-width: 95%;
+            }
+            
+            .letter-title {
+                font-size: 26px;
+            }
+            
+            .letter-text {
+                font-size: 16px;
             }
             
             /* Penyesuaian khusus iPhone 16 Pro */
@@ -763,6 +798,30 @@
             .flower {
                 display: none;
             }
+            
+            .popup-content {
+                max-width: 80%;
+            }
+            
+            .letter-content {
+                max-width: 90%;
+            }
+        }
+        
+        /* Animasi untuk fadeIn */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Animasi shake */
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-10px); }
+            80% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
         }
     </style>
 </head>
@@ -889,6 +948,7 @@
         const dontOpenBtn = document.getElementById('dontOpenBtn');
         const letterOverlay = document.getElementById('letterOverlay');
         const letterContent = document.getElementById('letterContent');
+        const body = document.body;
         
         // Variables
         let pinInput = '';
@@ -976,38 +1036,26 @@
             }
         });
         
-        // Animasi shake
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes shake {
-                0% { transform: translateX(0); }
-                20% { transform: translateX(-10px); }
-                40% { transform: translateX(10px); }
-                60% { transform: translateX(-10px); }
-                80% { transform: translateX(10px); }
-                100% { transform: translateX(0); }
-            }
-            
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(20px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-        `;
-        document.head.appendChild(style);
-        
         // Show popup function
         function showPopup(message) {
             popupMessage.textContent = message;
             errorPopup.classList.add('show');
             
+            // Nonaktifkan scrolling pada body
+            body.style.overflow = 'hidden';
+            
             setTimeout(() => {
                 errorPopup.classList.remove('show');
+                // Aktifkan kembali scrolling
+                body.style.overflow = '';
             }, 3000);
         }
         
         // Buka surat
         openLetterBtn.addEventListener('click', () => {
             letterOverlay.classList.add('show');
+            // Nonaktifkan scrolling pada body
+            body.style.overflow = 'hidden';
         });
         
         // Jangan buka surat
@@ -1056,6 +1104,17 @@
         letterOverlay.addEventListener('click', (e) => {
             if (!letterContent.contains(e.target)) {
                 letterOverlay.classList.remove('show');
+                // Aktifkan kembali scrolling
+                body.style.overflow = '';
+            }
+        });
+        
+        // Tutup surat dengan tombol escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && letterOverlay.classList.contains('show')) {
+                letterOverlay.classList.remove('show');
+                // Aktifkan kembali scrolling
+                body.style.overflow = '';
             }
         });
         
@@ -1118,7 +1177,9 @@
             
             // Hapus setelah animasi selesai
             setTimeout(() => {
-                document.body.removeChild(flower);
+                if (document.body.contains(flower)) {
+                    document.body.removeChild(flower);
+                }
             }, 15000);
         }, 3000);
     </script>
