@@ -736,9 +736,9 @@
         @supports(padding: max(0px)) {
             body {
                 padding: max(env(safe-area-inset-top), 20px) 
-                         max(env(safe-area-inset-right), 20px) 
-                         max(env(safe-area-inset-bottom), 20px) 
-                         max(env(safe-area-inset-left), 20px);
+                        max(env(safe-area-inset-right), 20px) 
+                        max(env(safe-area-inset-bottom), 20px) 
+                        max(env(safe-area-inset-left), 20px);
             }
         }
         
@@ -850,7 +850,7 @@
             <div class="heart-icon">
                 <i class="fas fa-heart"></i>
             </div>
-            <h1>Masukkan PIN Spesial</h1>
+            <h1>Please Enter Special PIN !!</h1>
             <div class="pin-display" id="pinDisplay"></div>
             
             <div class="keypad">
@@ -877,15 +877,15 @@
             <div class="heart-icon">
                 <i class="fas fa-heart"></i>
             </div>
-            <h1>Surat Spesial untukmu</h1>
+            <h1>Special Letter For You <3 </h1>
             
             <div class="envelope">
                 <i class="fas fa-envelope letter-icon"></i>
             </div>
             
             <div class="button-group">
-                <button class="btn open-btn" id="openLetterBtn">Buka Surat</button>
-                <button class="btn dont-btn" id="dontOpenBtn">Gamau Buka</button>
+                <button class="btn open-btn" id="openLetterBtn">Open Letter!</button>
+                <button class="btn dont-btn" id="dontOpenBtn">Don't want open!</button>
             </div>
         </div>
     </div>
@@ -904,32 +904,38 @@
     <div class="letter-overlay" id="letterOverlay">
         <div class="letter-content" id="letterContent">
             <div class="letter-header">
-                <h2 class="letter-title">HAPPY NATIONAL GIRLFRIEND DAY</h2>
+                <h2 class="letter-title">HAPPY NATIONAL GIRLFRIEND DAY!!</h2>
             </div>
             
             <div class="letter-body">
                 <div class="photo-grid">
-                    <div class="photo">Foto Kenangan 1</div>
-                    <div class="photo">Foto Kenangan 2</div>
-                    <div class="photo">Foto Kenangan 3</div>
-                    <div class="photo">Foto Kenangan 4</div>
+                    <div class="photo">
+                        <img src="/World Girlfriend Day/assets/images/foto1.jpg" alt="photo" height="380" width="280">
+                    </div>
+                    <div class="photo">
+                        <img src="/World Girlfriend Day/assets/images/foto2.jpg" alt="photo" height="380" width="280">
+                    </div>
+                    <div class="photo">
+                        <img src="/World Girlfriend Day/assets/images/foto3.jpg" alt="photo" height="380" width="280">
+                    </div>
+                    <div class="photo">
+                        <img src="/World Girlfriend Day/assets/images/foto4.jpg" alt="photo" height="380" width="280">
+                    </div>
                 </div>
                 
                 <div class="letter-text">
-                    <p>Sayangku tersayang,</p>
-                    <p>Di hari yang spesial ini, aku ingin mengucapkan selamat Hari Pacar Nasional untukmu. Terima kasih sudah menjadi bagian terindah dalam hidupku, selalu menyemangati dan mendukungku dalam setiap langkah.</p>
-                    <p>Aku masih ingat jelas hari pertama kita bertemu, senyum manismu yang langsung membuat hatiku berdebar. Setiap momen bersamamu adalah hadiah terbaik yang pernah aku terima.</p>
-                    <p>Kamu adalah orang yang selalu membuatku merasa istimewa, yang selalu ada di saat aku senang maupun sedih. Ketulusanmu, kepedulianmu, dan cara kamu mencintaiku membuatku merasa seperti manusia paling beruntung di dunia.</p>
-                    <p>Terima kasih sudah menjadi cahaya dalam hidupku, sudah menjadi tempat pulangku, dan sudah menjadi alasan aku tersenyum setiap hari. Aku berjanji akan terus mencintaimu dengan sepenuh hati, hari ini, besok, dan selamanya.</p>
-                    <p>Aku tidak bisa membayangkan hidup tanpamu. Kamu adalah jawaban dari semua doaku, dan aku bersyukur setiap hari karena Tuhan mempertemukan kita.</p>
-                    <p>Selamat Hari Pacar Nasional, sayangku. Aku mencintaimu lebih dari apapun di dunia ini.</p>
-                    <p>Dengan semua cinta,</p>
-                    <p>Kekasihmu</p>
+                    <p>Heyyow my girlfriend, my sweetheart, my love, my pwetty, <br />
+                    <p style="text-indent: 45px;">Happy national girlfriend day for you my sweetheart, I just want to say a lot of thanks to you my love, thank you for being the best girlfriend for me, thank you for being present in my life, thank you for coloring my life, thank you for being a light in my gloomy life, thank you for being the place where I tell and complain.</p>
+                    <p style="text-indent: 45px;">You are very valuable to me my pwetty, I want to make you happy always, take care of you, accompany you, and of course love you for the rest of my life, I am very very grateful for your presence, my life is getting better and I have a clearer life goal to make you happy in the future.</p>
+                    <p style="text-indent: 45px;">I'm sorry maybe for this time I haven't made the effort to buy you a gift or something, but I hope you like this surprise hihi, even though it's just an ordinary website...</p>
+                    <p></p>
+                    <p>With all love,</p>
+                    <p>Your boyfie</p>
                 </div>
             </div>
             
             <div class="close-instruction">
-                Klik di luar surat untuk menutup
+                Click outside the letter to close
             </div>
         </div>
     </div>
@@ -1060,7 +1066,7 @@
         
         // Jangan buka surat
         dontOpenBtn.addEventListener('click', () => {
-            showPopup('Yakin gamau baca surat spesial dari aku?');
+            showPopup('Yakin gamau baca surat dari aku nih? hiks :((');
             
             // Animasi hati di tombol
             const heart = document.createElement('i');
